@@ -1,0 +1,35 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Credit Report</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script>
+    if(window.addEventListener){
+         addEventListener('message', handleEvent, false);
+    }
+    else { // support for IE7 and IE8
+         attachEvent("onmessage", handleEvent)
+    }
+    function handleEvent(e) {
+    	 var data=JSON.parse(e.data);
+          var iframe = $("#productDisplayIframe");
+          var eventName = data.eventName;
+          var frameHeight = data.height;
+          switch(eventName) {
+                case 'onLoad':
+                iframe.height(frameHeight);
+                document.getElementById("iFrameContainer").style.visibility = "visible";
+                break;
+          }
+        }
+</script>
+</head>
+<body>
+	<div id="iFrameContainer">
+		<iframe src="https://drive.google.com/open?id=1J1G2Ax_DZzos6y105K427rhlBsXnOVlR" id="productDisplayIframe"
+			frameborder="0" width="100%" height="100%" marginheight="0" scrolling="no"></iframe>
+	</div>
+</body>
+</html>
